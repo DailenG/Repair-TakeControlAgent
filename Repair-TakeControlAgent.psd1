@@ -3,7 +3,7 @@
     RootModule        = 'Repair-TakeControlAgent.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.1'
+    ModuleVersion     = '1.0.2'
 
     # Supported PSEditions
     # CompatiblePSEditions = @('Desktop', 'Core')
@@ -21,7 +21,7 @@
     Copyright         = '(c) 2026 User. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description       = 'Diagnoses, repairs, and reinstalls the N-able Take Control (N-central) Agent. Addresses "Phantom Agent" scenarios where the service appears installed but fails to start. Includes Invoke-TakeControlChaos for failure simulation.'
+    Description       = 'Diagnoses, repairs, and reinstalls the N-able Take Control (N-central) Agent. Addresses "Phantom Agent" scenarios where the service appears installed but fails to start. Includes Invoke-TakeControlChaos for deliberately inducing failure states to test repair logic.'
 
     # Minimum version of the Windows PowerShell engine required by this module
     PowerShellVersion = '5.1'

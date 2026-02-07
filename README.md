@@ -7,7 +7,7 @@ A robust PowerShell module designed to diagnose, repair, and reinstall the N-abl
 - **Health Check (Audit Mode)**: Non-destructive analysis of services, binaries, and logs.
 - **Smart Repair**: Reinstalls the agent only if issues are detected.
 - **Force Reinstall**: Overwrites the existing installation while preserving identity (MSPID).
-- **Chaos Monkey**: Includes `Invoke-TakeControlChaos` to simulate failures for testing recovery logic.
+- **Chaos Monkey**: Includes `Invoke-TakeControlChaos` to deliberately induce failure states for testing repair logic.
 
 ## Installation
 
