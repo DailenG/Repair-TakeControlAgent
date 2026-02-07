@@ -3,7 +3,7 @@
     RootModule        = 'Repair-TakeControlAgent.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.2'
+    ModuleVersion     = '1.0.3'
 
     # Supported PSEditions
     # CompatiblePSEditions = @('Desktop', 'Core')
@@ -89,7 +89,7 @@
             Tags       = @('TakeControl', 'N-able', 'RMM', 'Repair', 'Agent', 'N-central', 'Dailen')
 
             # A URL to the license for this module.
-            # LicenseUri = ''
+            LicenseUri = 'https://github.com/DailenG/Repair-TakeControlAgent/blob/master/LICENSE'
 
             # A URL to the main website for this project.
             ProjectUri = 'http://github.com/DailenG/Repair-TakeControlAgent'
@@ -98,7 +98,7 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            # ReleaseNotes = ''
+            ReleaseNotes = 'v1.0.3 - Added license URI and improved PSGallery metadata'
 
         } # End of PSData hashtable
 
