@@ -15,6 +15,7 @@ function Get-TakeControlAgentHealth {
         NcentralConfig    = $false
         VulnerableDLL     = $false
         IntegrationMode   = "Unknown"
+        DiskSpaceLow      = $false
     }
 
     $binPath = Join-Path $Config.AgentInstallPath "BASupSrvc.exe"
@@ -25,6 +26,28 @@ function Get-TakeControlAgentHealth {
     if ($servicesRegistered -and -not $binaryExists) {
         $status.QuarantineSuspect = $true
         if (-not $Silent) { Write-TakeControlLog -Message "DETECTION: Services are registered but binary is missing. Likely AV Quarantine." -Level Warning -LogPath $Config.LogPath }
+    }
+
+    # Forensic Check: Disk Space
+    try {
+        $root = [System.IO.Path]::GetPathRoot($Config.AgentInstallPath)
+        # Only check if it looks like a local drive letter
+        if ($root -match "^[A-Za-z]:\\") {
+            $driveLetter = $root.Substring(0, 1)
+            $drive = Get-PSDrive -Name $driveLetter -ErrorAction Stop
+            # 5GB Threshold
+            if ($drive.Free -lt 5GB) {
+                $status.DiskSpaceLow = $true
+                $freeGB = [math]::Round($drive.Free / 1GB, 2)
+                if (-not $Silent) { 
+                    Write-TakeControlLog -Message "WARNING: Low Disk Space on drive ${driveLetter}:. Available: $freeGB GB (Threshold: 5 GB). This may cause installation failures." -Level Warning -LogPath $Config.LogPath 
+                }
+            }
+        }
+    }
+    catch {
+        # Non-critical failure, just log it
+        if (-not $Silent) { Write-TakeControlLog -Message "WARNING: Failed to check disk space: $_" -Level Warning -LogPath $Config.LogPath }
     }
 
     if ($binaryExists) {

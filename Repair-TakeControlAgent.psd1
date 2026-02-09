@@ -3,7 +3,7 @@
     RootModule        = 'Repair-TakeControlAgent.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.3'
+    ModuleVersion     = '1.0.4'
 
     # Supported PSEditions
     # CompatiblePSEditions = @('Desktop', 'Core')
@@ -18,7 +18,7 @@
     CompanyName       = ''
 
     # Copyright statement for this module
-    Copyright         = '(c) 2026 User. All rights reserved.'
+    Copyright         = '(c) 2026 - All rights reserved.'
 
     # Description of the functionality provided by this module
     Description       = 'Diagnoses, repairs, and reinstalls the N-able Take Control (N-central) Agent. Addresses "Phantom Agent" scenarios where the service appears installed but fails to start. Includes Invoke-TakeControlChaos for deliberately inducing failure states to test repair logic.'
@@ -86,19 +86,19 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('TakeControl', 'N-able', 'RMM', 'Repair', 'Agent', 'N-central', 'Dailen')
+            Tags         = @('TakeControl', 'N-able', 'RMM', 'Repair', 'Agent', 'N-central', 'Dailen')
 
             # A URL to the license for this module.
-            LicenseUri = 'https://github.com/DailenG/Repair-TakeControlAgent/blob/master/LICENSE'
+            LicenseUri   = 'https://github.com/DailenG/Repair-TakeControlAgent/blob/master/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri = 'http://github.com/DailenG/Repair-TakeControlAgent'
+            ProjectUri   = 'http://github.com/DailenG/Repair-TakeControlAgent'
 
             # A URL to an icon representing this module.
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = 'v1.0.3 - Added license URI and improved PSGallery metadata'
+            ReleaseNotes = 'v1.0.4 - Added disk space check to prevent installation failures on low storage.'
 
         } # End of PSData hashtable
 
