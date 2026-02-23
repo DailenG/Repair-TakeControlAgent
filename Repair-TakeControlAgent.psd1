@@ -3,7 +3,7 @@
     RootModule        = 'Repair-TakeControlAgent.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.4'
+    ModuleVersion     = '1.0.5'
 
     # Supported PSEditions
     # CompatiblePSEditions = @('Desktop', 'Core')
@@ -98,7 +98,7 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = 'v1.0.4 - Added disk space check to prevent installation failures on low storage. Interactive documentation: https://deepwiki.com/DailenG/Repair-TakeControlAgent'
+            ReleaseNotes = 'v1.0.5 - Added DeepWiki interactive documentation links. Previous: Added disk space check.'
 
         } # End of PSData hashtable
 
