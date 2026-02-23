@@ -45,6 +45,9 @@ function Repair-TakeControlAgent {
     
     .OUTPUTS
         PSCustomObject
+    
+    .RELATEDLINKS
+        https://deepwiki.com/DailenG/Repair-TakeControlAgent
     #>
     [CmdletBinding(SupportsShouldProcess = $true)]
     param(

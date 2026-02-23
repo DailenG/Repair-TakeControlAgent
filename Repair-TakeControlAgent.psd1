@@ -21,7 +21,7 @@
     Copyright         = '(c) 2026 - All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description       = 'Diagnoses, repairs, and reinstalls the N-able Take Control (N-central) Agent. Addresses "Phantom Agent" scenarios where the service appears installed but fails to start. Includes Invoke-TakeControlChaos for deliberately inducing failure states to test repair logic.'
+    Description       = 'Diagnoses, repairs, and reinstalls the N-able Take Control (N-central) Agent. Addresses "Phantom Agent" scenarios where the service appears installed but fails to start. Includes Invoke-TakeControlChaos for deliberately inducing failure states to test repair logic. Interactive documentation: https://deepwiki.com/DailenG/Repair-TakeControlAgent'
 
     # Minimum version of the Windows PowerShell engine required by this module
     PowerShellVersion = '5.1'
@@ -98,7 +98,7 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = 'v1.0.4 - Added disk space check to prevent installation failures on low storage.'
+            ReleaseNotes = 'v1.0.4 - Added disk space check to prevent installation failures on low storage. Interactive documentation: https://deepwiki.com/DailenG/Repair-TakeControlAgent'
 
         } # End of PSData hashtable
 

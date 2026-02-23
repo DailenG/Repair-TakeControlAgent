@@ -9,6 +9,12 @@ A robust PowerShell module designed to diagnose, repair, and reinstall the N-abl
 - **Force Reinstall**: Overwrites the existing installation while preserving identity (MSPID).
 - **Chaos Monkey**: Includes `Invoke-TakeControlChaos` to deliberately induce failure states for testing repair logic.
 
+## Documentation
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/DailenG/Repair-TakeControlAgent)
+
+View the interactive documentation on [DeepWiki](https://deepwiki.com/DailenG/Repair-TakeControlAgent)
+
 ## Installation
 
 ```powershell

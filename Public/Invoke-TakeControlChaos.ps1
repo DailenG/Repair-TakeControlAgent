@@ -34,6 +34,9 @@ function Invoke-TakeControlChaos {
     .EXAMPLE
         Invoke-TakeControlChaos -Scenario LockFile -AllowDestruction
         (Prompts for confirmation AND checks for switch)
+    
+    .RELATEDLINKS
+        https://deepwiki.com/DailenG/Repair-TakeControlAgent
     #>
     [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'High')]
     param(
