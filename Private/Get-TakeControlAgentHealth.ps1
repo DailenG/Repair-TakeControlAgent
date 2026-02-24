@@ -16,6 +16,8 @@ function Get-TakeControlAgentHealth {
         VulnerableDLL     = $false
         IntegrationMode   = "Unknown"
         DiskSpaceLow      = $false
+        CrashHistory      = $false
+        CrashCount        = 0
     }
 
     $binPath = Join-Path $Config.AgentInstallPath "BASupSrvc.exe"
@@ -81,6 +83,21 @@ function Get-TakeControlAgentHealth {
             }
         }
         catch {}
+    }
+
+    # Forensic Check: Crash History (Access Violations)
+    try {
+        $crashCheck = Test-TakeControlCrashHistory -Config $Config -LookbackDays 7 -Silent:$Silent
+        if ($crashCheck.CrashDetected) {
+            $status.CrashHistory = $true
+            $status.CrashCount = $crashCheck.CrashCount
+            if (-not $Silent) { 
+                Write-TakeControlLog -Message "DETECTION: Found $($crashCheck.CrashCount) crash event(s) in the last 7 days. The agent may be unstable." -Level Warning -LogPath $Config.LogPath 
+            }
+        }
+    }
+    catch {
+        if (-not $Silent) { Write-TakeControlLog -Message "WARNING: Crash history check failed: $_" -Level Warning -LogPath $Config.LogPath }
     }
 
     # Forensic Check: Config Corruption (Zombie Agent)

@@ -108,7 +108,7 @@ function Repair-TakeControlAgent {
     if ($OperationMode -in @('ForceReinstall', 'CleanInstall')) {
         $needsAction = $true
     }
-    elseif (-not $initialHealth.ServicesRunning -or -not $initialHealth.SignatureValid -or $initialHealth.QuarantineSuspect -or $initialHealth.ConfigCorrupt) {
+    elseif (-not $initialHealth.ServicesRunning -or -not $initialHealth.SignatureValid -or $initialHealth.QuarantineSuspect -or $initialHealth.ConfigCorrupt -or $initialHealth.CrashHistory) {
         Write-TakeControlLog -Message "Health check failed. Initiating repair." -Level Warning -LogPath $Config.LogPath
         $needsAction = $true
     }
@@ -252,6 +252,8 @@ function Repair-TakeControlAgent {
         ServicesUp        = $finalHealth.ServicesRunning
         QuarantineSuspect = $finalHealth.QuarantineSuspect
         ConfigCorrupt     = $finalHealth.ConfigCorrupt
+        CrashHistory      = $finalHealth.CrashHistory
+        CrashCount        = $finalHealth.CrashCount
         RestartedNcentral = $RestartNcentralAgent
         LogFile           = $Config.LogPath
     }

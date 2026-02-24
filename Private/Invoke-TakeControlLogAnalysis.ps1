@@ -28,11 +28,16 @@ function Invoke-TakeControlLogAnalysis {
     try {
         $appEvents = Get-WinEvent -FilterHashtable @{
             LogName = 'Application'; Level = 2; StartTime = (Get-Date).AddHours(-24)
-        } -ErrorAction SilentlyContinue | Where-Object { $_.Message -like "*BASupSrvc*" }
+        } -ErrorAction SilentlyContinue | Where-Object { $_.Message -match 'BASupSrv(c|Cnfg)' }
 
         if ($appEvents) {
             foreach ($ev in $appEvents | Select-Object -First 3) {
                 Write-TakeControlLog -Message "APP CRASH DETECTED: $($ev.TimeCreated) - $($ev.Message)" -Level Diagnosis -LogPath $Config.LogPath
+                
+                # Highlight specific crash types
+                if ($ev.Message -match 'BASupSrvCnfg\.exe.*0xc0000005') {
+                    Write-TakeControlLog -Message "ANALYSIS: Access violation detected in BASupSrvCnfg.exe (Configuration Tool). This indicates memory corruption or incompatible system state." -Level Diagnosis -LogPath $Config.LogPath
+                }
             }
         }
     }
