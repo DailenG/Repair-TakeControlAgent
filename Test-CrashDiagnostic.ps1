@@ -68,7 +68,7 @@ try {
         }
     }
     else {
-        Write-Host "  [✓] No crashes found in Application Event Log" -ForegroundColor Green
+        Write-Host "  [OK] No crashes found in Application Event Log" -ForegroundColor Green
     }
 }
 catch {
@@ -91,7 +91,7 @@ try {
             }
         }
         else {
-            Write-Host "  [✓] No recent crash dumps found" -ForegroundColor Green
+            Write-Host "  [OK] No recent crash dumps found" -ForegroundColor Green
         }
     }
     else {
@@ -126,7 +126,7 @@ foreach ($binPath in $binaries) {
             Write-Host "    [!] SUSPICIOUS SIZE: $([math]::Round($fileInfo.Length/1KB, 2)) KB (expected >50KB)" -ForegroundColor Red
         }
         else {
-            Write-Host "    [✓] Size: $([math]::Round($fileInfo.Length/1KB, 2)) KB" -ForegroundColor Green
+            Write-Host "    [OK] Size: $([math]::Round($fileInfo.Length/1KB, 2)) KB" -ForegroundColor Green
         }
         
         # Signature check
@@ -137,7 +137,7 @@ foreach ($binPath in $binaries) {
                 Write-Host "    [!] SIGNATURE INVALID: $($sig.Status)" -ForegroundColor Red
             }
             else {
-                Write-Host "    [✓] Signature: Valid ($($sig.SignerCertificate.Subject.Split(',')[0]))" -ForegroundColor Green
+                Write-Host "    [OK] Signature: Valid ($($sig.SignerCertificate.Subject.Split(',')[0]))" -ForegroundColor Green
             }
         }
         catch {

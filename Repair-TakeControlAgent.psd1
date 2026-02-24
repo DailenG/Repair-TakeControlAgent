@@ -3,7 +3,7 @@
     RootModule        = 'Repair-TakeControlAgent.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.6'
+    ModuleVersion     = '1.0.7'
 
     # Supported PSEditions
     # CompatiblePSEditions = @('Desktop', 'Core')
@@ -98,7 +98,7 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = 'v1.0.6 - Added crash detection for BASupSrvCnfg.exe and BASupSrvc.exe access violations. Includes Test-TakeControlCrashHistory function and standalone Test-CrashDiagnostic.ps1 script. Previous: Added DeepWiki interactive documentation links.'
+            ReleaseNotes = 'v1.0.7 - Fixed Unicode character encoding in Test-CrashDiagnostic.ps1 for Windows PowerShell 5.1 compatibility. Previous: Added crash detection for BASupSrvCnfg.exe and BASupSrvc.exe access violations.'
 
         } # End of PSData hashtable
 
